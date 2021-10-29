@@ -1,26 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <h1>Wendroandy Test</h1>
+    <AddInput @add-input="addInput"/>
+    <Inputs :inputs="inputData" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Inputs from './components/Inputs.vue'
+import AddInput from './components/AddInput.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Inputs,
+    AddInput
+  },
+  data() {
+    return {
+      inputData: []
+    }
+  },
+  methods: {
+    addInput(input) {
+      this.inputData=[...this.inputData, input]
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
